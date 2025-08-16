@@ -1,0 +1,11 @@
+.heading {
+  font-size: 2rem;       /* tamanho do título */
+  font-weight: 700;      /* negrito */
+  color: #fff;        /* cor principal */
+  text-transform: uppercase; /* deixa todas as letras maiúsculas */
+  letter-spacing: 1px;   /* espaçamento entre letras */
+  margin: 1.5rem 0;      /* espaçamento superior e inferior */
+  text-align: center;    /* centraliza o título */
+  border-bottom: 2px solid var(--text-default); /* linha decorativa */
+  padding-bottom: 0.5rem;
+}

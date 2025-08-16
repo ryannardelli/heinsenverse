@@ -33,13 +33,13 @@
   --gray-900: #0a0f1a; /* Fundo principal do site */
 
   /* 🌿 Cores Primárias (cores fixas - NÃO mudam com o tema) */
-  --primary-light: #4de7b7; /* Usado para realces suaves */
-  --primary: #0da170; /* Cor principal do projeto */
-  --primary-dark: #065f46; /* Usado em hovers e elementos ativos */
+  --primary-light: #36BFB1; /* Usado para realces suaves */
+  --primary: #038C73; /* Cor principal do projeto */
+  --primary-dark: #014034; /* Usado em hovers e elementos ativos */
 
   /* 🔗 Links */
-  --link-color: #10b981; /* Cor padrão dos links */
-  --link-hover: #0b8a60; /* Cor dos links ao passar o mouse */
+  --link-color: #038C73; /* Cor padrão dos links */
+  --link-hover: #038C73; /* Cor dos links ao passar o mouse */
 
   /* 🚦 Alertas (cores fixas, usadas para feedbacks visuais) */
   --success: #22c55e; /* Indica sucesso (verde) */
