@@ -1,5 +1,9 @@
+import { MainRouter } from "../routers/MainRouter";
+
 function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <MainRouter />
+  );
 }
 
 export default App;
