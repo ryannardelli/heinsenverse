@@ -9,6 +9,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import styles from './styles.module.css';
+import { SwiperComponent } from "../SwiperComponent";
+import { SwiperSlideComponent } from "../SwiperSliderComponent";
 
 export default function EpisodesList() {
   const context = useContext(EpisodesContext);
