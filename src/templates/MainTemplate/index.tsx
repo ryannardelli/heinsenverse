@@ -1,4 +1,5 @@
 import Container from "../../components/Container";
+import { Footer } from "../../components/Footer";
 import Header from "../../components/Header";
 
 type MainTemplateProps = {
@@ -13,6 +14,10 @@ export default function MainTemplate({ children }: MainTemplateProps) {
         </Container>
         
         {children}
+
+        <Container>
+          <Footer />
+        </Container>
     </>
   );
 }
