@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from 'react';
 import { BestCharacterContext } from '../../contexts/BestCharactersContext';
 import { characterReducer } from '../../reducers/BestCharacterReducer';
-import { fetchBestCharacters } from '../../services/api';
+import { fetchBestCharacters } from '../../services/homeApi';
 
 type BestCharacterProviderProps = {
   children: React.ReactNode;

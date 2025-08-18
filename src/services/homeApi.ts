@@ -1,7 +1,7 @@
 import type { BestCharacter } from "../models/BestCharacter";
 import type { BestEpisode } from "../models/BestEpisode";
 import { catchApiKey } from "../utils/catchApiKey";
-import { fetchBaseUrl, fetchSize } from "./configuration";
+import { fetchBaseUrl, fetchSize } from "./configurationApi";
 
 const api_key = catchApiKey();
 const serieId = 1396; // id Breaking Bad
