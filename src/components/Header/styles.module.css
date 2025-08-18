@@ -1,7 +1,4 @@
 .header {
-background: url("https://wallpapers.com/images/hd/breaking-bad-background-npr2w59rlrm34jhg.jpg") center / cover no-repeat;
-	height: 100vh;
-	margin: 0;
 	display: flex;
 	justify-content: center;
 }

@@ -1,6 +1,8 @@
 import EpisodesList from "../../components/BestEpisodesList";
 import Container from "../../components/Container";
+import { ContainerBackground } from "../../components/ContainerBackground";
 import Heading from "../../components/Heading";
+import { Hero } from "../../components/Hero";
 import MainTemplate from "../../templates/MainTemplate";
 
 export default function Home() {
@@ -8,7 +10,11 @@ export default function Home() {
         <>
             <MainTemplate>
                 <Container>
-                    <Heading>Melhores Episódios</Heading>            
+                    <ContainerBackground>
+                        <Hero />
+                    </ContainerBackground>
+                    
+                    <Heading>Melhores Episódios</Heading>           
                     <EpisodesList />
                 </Container>
             </MainTemplate>
