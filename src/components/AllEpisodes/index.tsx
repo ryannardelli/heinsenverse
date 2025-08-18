@@ -22,7 +22,7 @@ export function AllEpisodes() {
                     )}
                     <div className={styles.info}>
                         <h3>{ep.name}</h3>
-                        <p>Temporada {ep.season_number} - Episódio {ep.episode_number}</p>
+                        <p>Temporada {ep.season_number === 0 ? 1 : ep.season_number} - Episódio {ep.episode_number}</p>
                         <p>{ep.overview}</p>
                     </div>
                 </div>
