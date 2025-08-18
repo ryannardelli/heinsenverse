@@ -1,8 +1,11 @@
+import { BestEpisodesProvider } from "../providers/BestEpisodeContextProvider";
 import { MainRouter } from "../routers/MainRouter";
 
 function App() {
   return (
-    <MainRouter />
+    <BestEpisodesProvider>
+      <MainRouter />
+    </BestEpisodesProvider>
   );
 }
 

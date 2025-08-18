@@ -2,7 +2,8 @@ import styles from './styles.module.css';
 
 export default function Header() {
     return(
-      <ul className={styles.menuBar}>
+      <header className={styles.header}>
+        <ul className={styles.menuBar}>
         <li><a href="/">Home</a></li>
         <li><a href="/">Episódios</a></li>
         <li><a href="/">Personagens</a></li>
@@ -10,5 +11,6 @@ export default function Header() {
         <li><a href="/">Favoritos</a></li>
         <li><a href="/">Sobre</a></li>
       </ul>
+      </header>
     );
 }

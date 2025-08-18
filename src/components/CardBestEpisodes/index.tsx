@@ -1,33 +1,5 @@
-// import styles from './styles.module.css';
-
-// type CardBestEpisodesProps = {
-//     id?: number,
-//     title: string;
-//     description: string;
-//     season: number;
-//     episode: number;
-//     image: string;
-// }
-
-// export function CardBestEpisodes({ title, description, season, episode, image, airDate }: CardBestEpisodesProps) {
-//     return(
-//         <div className={styles.container}>
-//             <div className={styles.cardGrid}>
-//                 <div className={styles.card}>
-//                     <img src={image} alt={title} className={styles.cardImage}></img>
-//                     <div className={styles.cardContent}>
-//                         <h3 className={styles.cardTitle}>{title}</h3>
-//                         <p className={styles.cardInfo}>Temporada {season}, Episódio {episode}</p>
-//                         <p className={styles.cardDescription}>{description}</p>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }
-
-// CardBestEpisodes.tsx
-import styles from "./styles.module.css";
+// Aqui o styles foi colocado tudo em global.css, porque não foi viavel utilizar o CSS module, por isso
+// esse componente ficou sem styles.module.css
 
 type CardBestEpisodesProps = {
   title: string;
@@ -37,15 +9,25 @@ type CardBestEpisodesProps = {
   image: string;
 };
 
-export function CardBestEpisodes({ title, description, season, episode, image }: CardBestEpisodesProps) {
+export function CardBestEpisodes({ title, description, season, episode }: CardBestEpisodesProps) {
   return (
-    <div className={styles.card}>
-      <img src={image} alt={title} className={styles.cardImage} />
-      <div className={styles.cardContent}>
-        <h3 className={styles.cardTitle}>{title}</h3>
-        <p className={styles.cardInfo}>Temporada {season}, Episódio {episode}</p>
-        <p className={styles.cardDescription}>{description}</p>
+    <>
+      <div className="title">
+        <h1>{title}</h1>
       </div>
-    </div>
+
+      <div className="content">
+        <div className="score">8.6</div>
+        <div className="text">
+          <h2>{title}</h2>
+          <p>{description}</p>
+        </div>
+
+        <div className="genre">
+          <span style={{ ["--i" as any]: 1 }}>Drama</span>
+          <span style={{ ["--i" as any]: 2 }}>Comédia</span>
+        </div>
+      </div>
+    </>
   );
 }
