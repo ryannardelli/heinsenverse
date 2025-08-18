@@ -3,13 +3,14 @@
 
 type CardBestEpisodesProps = {
   title: string;
-  description: string;
-  season: number;
-  episode: number;
+  overview: string;
+  seasonNumber: number,
+  episodeNumber: number,
   image: string;
+  voteAverage: number;
 };
 
-export function CardBestEpisodes({ title, description, season, episode }: CardBestEpisodesProps) {
+export function CardBestEpisodes({ title, overview, voteAverage, seasonNumber, episodeNumber }: CardBestEpisodesProps) {
   return (
     <>
       <div className="title">
@@ -17,15 +18,15 @@ export function CardBestEpisodes({ title, description, season, episode }: CardBe
       </div>
 
       <div className="content">
-        <div className="score">8.6</div>
+        <div className="score">{voteAverage}</div>
         <div className="text">
           <h2>{title}</h2>
-          <p>{description}</p>
+          <p>{overview}</p>
         </div>
 
         <div className="genre">
-          <span style={{ ["--i" as any]: 1 }}>Drama</span>
-          <span style={{ ["--i" as any]: 2 }}>Comédia</span>
+          <span style={{ ["--i" as any]: 1 }}>Temporada {seasonNumber}</span>
+          <span style={{ ["--i" as any]: 2 }}>Episódio {episodeNumber}</span>
         </div>
       </div>
     </>

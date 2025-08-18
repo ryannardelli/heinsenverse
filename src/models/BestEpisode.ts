@@ -1,9 +1,9 @@
 export interface BestEpisode {
     id: number;
-    title: string;
-    season: number;
-    episode: number;
-    rating: number;
-    image: string;
-    description: string;
+    name: string;
+    overview: string;
+    season_number: number,
+    episode_number: number,
+    vote_average: number;
+    imageUrl: string;
 }

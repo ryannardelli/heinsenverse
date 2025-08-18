@@ -56,6 +56,7 @@ main {
   height: 16px;
   background-color: #fff;
   border-radius: 50%;
+  display: none;
 }
 
 :global(.swiper-pagination-bullet-active) {
