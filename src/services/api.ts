@@ -1,3 +1,4 @@
+import type { BestCharacter } from "../models/BestCharacter";
 import type { BestEpisode } from "../models/BestEpisode";
 import { catchApiKey } from "../utils/catchApiKey";
 import { fetchBaseUrl, fetchSize } from "./configuration";
@@ -15,7 +16,7 @@ export async function fetchBestEpisodes(): Promise<BestEpisode[]> {
   const posterSizes = await fetchSize("poster_sizes");
 
     // pega um tamanho padrão (original)
-    const posterSize = posterSizes.includes("original") ? "original" : posterSizes[posterSizes.length - 1];
+  const posterSize = posterSizes.includes("original") ? "original" : posterSizes[posterSizes.length - 1];
 
   const allEpisodes: BestEpisode[] = [];
 
@@ -38,6 +39,33 @@ export async function fetchBestEpisodes(): Promise<BestEpisode[]> {
 
   allEpisodes.sort((a, b) => b.vote_average - a.vote_average);
 
-  // limita a 3
   return allEpisodes;
+}
+
+export async function fetchBestCharacters(): Promise<BestCharacter[]> {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/tv/${serieId}/credits?api_key=${api_key}&language=pt-BR`
+  );
+
+  if (!response.ok) {
+    throw new Error(`Erro ao buscar personagens: ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  const base_url = await fetchBaseUrl();
+  const profileSizes = await fetchSize("profile_sizes");
+
+  // escolher um tamanho padrão
+  const profileSize = profileSizes.includes("original")
+    ? "original"
+    : profileSizes[profileSizes.length - 1];
+
+  // adicionar a URL completa da imagem
+  const charactersWithImages: BestCharacter[] = data.cast.map((char: any) => ({
+    ...char,
+    imageUrl: char.profile_path ? `${base_url}${profileSize}${char.profile_path}` : null
+  }));
+
+  return charactersWithImages;
 }

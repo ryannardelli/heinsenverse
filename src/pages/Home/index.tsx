@@ -1,4 +1,5 @@
-import EpisodesList from "../../components/BestEpisodesList";
+import { BestCharactersList } from "../../components/BestCharactersList";
+import BestEpisodesList from "../../components/BestEpisodesList";
 import Container from "../../components/Container";
 import { ContainerBackground } from "../../components/ContainerBackground";
 import Heading from "../../components/Heading";
@@ -14,8 +15,11 @@ export default function Home() {
                         <Hero />
                     </ContainerBackground>
                     
-                    <Heading>Melhores Episódios</Heading>           
-                    <EpisodesList />
+                    <Heading>Episódios mais bem votados</Heading>  
+                    <BestEpisodesList />
+
+                    <Heading>Elenco aclamado pelo público</Heading>
+                    <BestCharactersList />
                 </Container>
             </MainTemplate>
         </>

@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from "react";
 import { episodesReducer } from "../../reducers/BestEpisodeReducer";
 import { fetchBestEpisodes } from "../../services/api";
-import { EpisodesContext } from "../../contexts/BestEpisodesContext";
+import { BestEpisodeContext } from "../../contexts/BestEpisodeContext";
 
 type BestEpisodesProviderProps = {
   children: React.ReactNode;
@@ -31,8 +31,8 @@ export const BestEpisodesProvider: React.FC<BestEpisodesProviderProps> = ({ chil
   }, []);
 
   return (
-    <EpisodesContext.Provider value={state}>
+    <BestEpisodeContext.Provider value={state}>
       {children}
-    </EpisodesContext.Provider>
+    </BestEpisodeContext.Provider>
   );
 };

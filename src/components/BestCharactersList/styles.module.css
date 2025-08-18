@@ -1,0 +1,68 @@
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.swiperSlide {
+  position: relative;
+  width: 400px;
+  height: 420px;
+  background: #fff;
+  box-shadow: 1px 22px 44px rgba(0, 0, 0, 0.2);
+  border-radius: 20% 6px 20% 6px;
+  overflow: hidden;
+  transition: transform 1s;
+  user-select: none;
+}
+
+:global(.swiper-slide-active) {
+  border: 3px solid #fff;
+  transition: border 0.6s ease-in-out;
+}
+
+:global(.swiper-slide-active) :global(.title) h1 {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  transition-delay: 1.5s;
+}
+
+:global(.swiper-slide-active) :global(.content) {
+  opacity: 1;
+}
+
+:global(.swiper-slide-active) :global(.score) {
+  opacity: 1;
+  transition: 0.8s;
+  transition-delay: 0.9s;
+}
+
+:global(.swiper-slide-active) :global(.text) {
+  opacity: 1;
+  transition: 1s;
+  transition-delay: 2s;
+}
+
+:global(.swiper-slide-active) :global(.genre) span {
+  opacity: 1;
+  transition: 0.8s ease-in-out;
+  transition-delay: calc(2.4s + var(--i) * 0.4s);
+}
+
+:global(.swiper-pagination-bullet) {
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: none;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  width: 32px;
+  border-radius: 14px;
+  background: linear-gradient(120deg, #f0d11b, #ffc750);
+  box-shadow: 0 0 20px 0 rgba(255, 200, 80, 0.7);
+  transition: all 0.8s ease-in-out;
+}

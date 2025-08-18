@@ -7,4 +7,4 @@ export type EpisodesContextType = {
   error: string | null;
 };
 
-export const EpisodesContext = createContext<EpisodesContextType | undefined>(undefined);
+export const BestEpisodeContext = createContext<EpisodesContextType | undefined>(undefined);

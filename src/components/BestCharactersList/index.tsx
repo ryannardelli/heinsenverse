@@ -1,23 +1,27 @@
-import { CardBestEpisodes } from '../CardBestEpisodes';
+import styles from './styles.module.css';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { useBestCharacterContext } from '../../hooks/useBestCharacterContext';
+import { CardBestCharacters } from '../CardBestCharacters';
+import { useEffect } from 'react';
 
-import styles from './styles.module.css';
-import { useBestEpisodeContext } from '../../hooks/useBestEpisodeContext';
+export function BestCharactersList() {
+    const context = useBestCharacterContext();
 
-export default function BestEpisodesList() {
-  const context = useBestEpisodeContext();
+     useEffect(() => {
+        console.log(context);
+    }, [context]);
 
-  if (!context) return <div>Contexto não disponível</div>;
+    if (!context) return <div>Contexto não disponível</div>;
 
-  const { episodes, loading, error } = context;
+    const { characters, loading, error } = context;
 
-  if (loading) return <div>Carregando episódios...</div>;
-  if (error) return <div>{error}</div>;
+    if (loading) return <div>Carregando personagens...</div>;
+    if (error) return <div>{error}</div>;
 
   return (
     <main>
@@ -42,25 +46,21 @@ export default function BestEpisodesList() {
             650: { spaceBetween: 30 },
           }}
         >
-          {episodes.map(episode => (
+          {characters.map(characters => (
             <SwiperSlide
               className={styles.swiperSlide}
-              key={episode.id}
+              key={characters.id}
               style={{
-                backgroundImage: `url(${episode.imageUrl ?? '/fallback.jpg'})`,
+                backgroundImage: `url(${characters.imageUrl ?? '/fallback.jpg'})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
             >
-              <CardBestEpisodes
-                title={episode.name}
-                overview={episode.overview}
-                seasonNumber={
-                  episode.season_number === 0 ? 1 : episode.season_number
-                }
-                episodeNumber={episode.episode_number}
-                voteAverage={Number(episode.vote_average.toFixed(1))}
-                image={episode.imageUrl ?? '/fallback.jpg'}
+              <CardBestCharacters
+                name={characters.name}
+                character={characters.character}
+                popularity={Number(characters.popularity.toFixed(2))}
+                image={characters.image ?? '/fallback.jpg'}
               />
             </SwiperSlide>
           ))}
@@ -69,3 +69,4 @@ export default function BestEpisodesList() {
     </main>
   );
 }
+
