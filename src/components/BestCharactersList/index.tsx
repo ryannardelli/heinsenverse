@@ -7,14 +7,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { useBestCharacterContext } from '../../hooks/useBestCharacterContext';
 import { CardBestCharacters } from '../CardBestCharacters';
-import { useEffect } from 'react';
 
 export function BestCharactersList() {
     const context = useBestCharacterContext();
-
-     useEffect(() => {
-        console.log(context);
-    }, [context]);
 
     if (!context) return <div>Contexto não disponível</div>;
 
