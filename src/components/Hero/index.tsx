@@ -5,7 +5,7 @@ export function Hero() {
     <section className={styles.hero}>
       <div className={styles.heroOverlay}>
         <div className={styles.heroContent}>
-          <h1>Breaking Heinsenverse</h1>
+          <h1>Heinsenverse</h1>
           <p>Explore tudo sobre a série Breaking Bad em um só lugar</p>
         </div>
       </div>
