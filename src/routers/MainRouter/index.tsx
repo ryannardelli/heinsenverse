@@ -3,6 +3,7 @@ import Home from "../../pages/Home";
 import Episode from "../../pages/Episode";
 import Characters from "../../pages/Characacters";
 import About from "../../pages/About";
+import Favorite from "../../pages/Favorite";
 
 export function MainRouter() {
     return(
@@ -12,6 +13,7 @@ export function MainRouter() {
                 <Route path="/episode" element={<Episode />} />
                 <Route path="/characters" element={<Characters />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/favorite" element={<Favorite />} />
             </Routes>
         </BrowserRouter>
     );

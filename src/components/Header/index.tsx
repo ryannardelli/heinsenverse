@@ -9,7 +9,7 @@ export default function Header() {
         <li><RouterLinks href="/episode">Episódios</RouterLinks></li>
         <li><RouterLinks href="/characters">Personagens</RouterLinks></li>
         <li><RouterLinks href="#">Elenco</RouterLinks></li>
-        <li><RouterLinks href="#">Favoritos</RouterLinks></li>
+        <li><RouterLinks href="/favorite">Favoritos</RouterLinks></li>
         <li><RouterLinks href="/about">Sobre</RouterLinks></li>
       </ul>
     </header>

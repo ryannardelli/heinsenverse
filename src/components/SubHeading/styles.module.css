@@ -1,0 +1,8 @@
+.subHeading {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--gray-400);
+}
