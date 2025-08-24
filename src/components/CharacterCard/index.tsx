@@ -49,7 +49,7 @@ export function CharacterCard() {
       <div className={styles.grid}>
         {visibleChars.map(char => (
           <div key={char.id} className={styles.card}>
-            <img src={char.imageUrl} alt={char.name} className={styles.image} />
+            <img src={char.imageUrl || '/src/assets/img/default.png'} alt={char.name} className={styles.image} />
             <div className={styles.info}>
               <h3 className={styles.name}>{char.name}</h3>
               <p className={styles.nickname}>{char.character}</p>
