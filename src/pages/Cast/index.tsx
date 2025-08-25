@@ -1,15 +1,15 @@
-import { CharacterCard } from "../../components/CharacterCard";
+import { CastCard } from "../../components/CastCard";
 import Container from "../../components/Container";
 import Heading from "../../components/Heading";
 import MainTemplate from "../../templates/MainTemplate";
 
-export default function Characters() {
+export default function Cast() {
     return(
         <>
         <MainTemplate>
             <Container>
-                <Heading>Personagens</Heading>
-                <CharacterCard />
+                <Heading>Elenco</Heading>
+                <CastCard />
             </Container>
         </MainTemplate>
     </>

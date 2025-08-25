@@ -10,7 +10,7 @@ type AllCharacters = {
   character?: string;
 };
 
-export function CharacterCard() {
+export function CastCard() {
   const { allCharacters, loading, error } = useAllCharactersContext();
   const [favorites, setFavorites] = useState<number[]>([]);
   
