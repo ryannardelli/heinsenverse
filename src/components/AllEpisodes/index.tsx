@@ -3,6 +3,7 @@ import { useAllEpisodesContext } from "../../hooks/useAllEpisodesContext";
 import { useReducer } from 'react';
 import FilterHeading from '../FilterHeadingEpisodes';
 import { FilterEpisodesReducer } from '../../reducers/FilterEpisodesReducer';
+import { motion } from 'framer-motion';
 
 export function AllEpisodes() {
     const [state, dispatch] = useReducer(FilterEpisodesReducer, {
@@ -32,10 +33,16 @@ export function AllEpisodes() {
         state={state}
         dispatch={dispatch}
       />
-
       <div className={styles.container}>
-        {filteredEpisodes.map(ep => (
-          <div key={ep.id} className={styles.card}>
+        {filteredEpisodes.map((ep) => (
+          <motion.div
+            key={ep.id}
+            className={styles.card}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             {ep.still_path && (
               <img src={`https://image.tmdb.org/t/p/w300${ep.still_path}`} alt={ep.name} />
             )}
@@ -44,7 +51,7 @@ export function AllEpisodes() {
               <p>Temporada {ep.season_number === 0 ? 1 : ep.season_number} - Episódio {ep.episode_number}</p>
               <p>{ep.overview}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
