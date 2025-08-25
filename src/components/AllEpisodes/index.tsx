@@ -1,13 +1,8 @@
 import styles from './styles.module.css';
-import { useEffect } from "react";
 import { useAllEpisodesContext } from "../../hooks/useAllEpisodesContext";
 
 export function AllEpisodes() {
     const context = useAllEpisodesContext();
-
-    useEffect(() => {
-        console.log(context);
-    }, [context]);
 
     if (!context) return null;
 
