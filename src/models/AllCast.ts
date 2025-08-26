@@ -1,4 +1,4 @@
-export interface AllCharacters {
+export interface AllCast {
     id: number,
     name: string;
     character: string;

@@ -1,4 +1,4 @@
-import { AllCharactersProvider } from "../providers/AllCharactersContextProvider";
+import { AllCastProvider } from "../providers/AllCastContextProvider";
 import { AllEpisodesProvider } from "../providers/AllEpisodesContextProvider";
 import { BestCharactersProvider } from "../providers/BestCharacterContextProvider";
 import { BestEpisodesProvider } from "../providers/BestEpisodeContextProvider";
@@ -6,7 +6,7 @@ import { MainRouter } from "../routers/MainRouter";
 
 function App() {
   return (
-    <AllCharactersProvider>
+    <AllCastProvider>
       <AllEpisodesProvider>
       <BestEpisodesProvider>
         <BestCharactersProvider>
@@ -14,7 +14,7 @@ function App() {
         </BestCharactersProvider>
       </BestEpisodesProvider>
       </AllEpisodesProvider>
-    </AllCharactersProvider>
+    </AllCastProvider>
   );
 }
 

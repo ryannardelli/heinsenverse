@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
-import { useAllCharactersContext } from "../../hooks/useAllCharactersContext";
 import { motion } from "framer-motion";
+import { useAllCastContext } from "../../hooks/useAllCastContext";
 
-type AllCharacters = {
+type AllCast = {
   id: number;
   name: string;
   imageUrl: string;
@@ -11,25 +11,19 @@ type AllCharacters = {
 };
 
 export function CastCard() {
-  const { allCharacters, loading, error } = useAllCharactersContext();
-  const [favorites, setFavorites] = useState<number[]>([]);
+
+  const { allCast, loading, error, toggleFavorite, favorites } = useAllCastContext();
   
   // Quantos personagens mostrar
   const [itemsToShow, setItemsToShow] = useState(10);
-  const [visibleChars, setVisibleChars] = useState<AllCharacters[]>([]);
+  const [visibleChars, setVisibleChars] = useState<AllCast[]>([]);
 
   useEffect(() => {
-    setVisibleChars(allCharacters.slice(0, itemsToShow));
-  }, [allCharacters, itemsToShow]);
+    setVisibleChars(allCast.slice(0, itemsToShow));
+  }, [allCast, itemsToShow]);
 
   if (loading) return <p style={{textAlign: "center"}}>Carregando personagens...</p>
   if (error) return <p style={{textAlign: "center"}}>Erro: {error}</p>
-
-  const toggleFavorite = (id: number) => {
-    setFavorites(prev =>
-      prev.includes(id) ? prev.filter(fav => fav !== id) : [...prev, id]
-    );
-  };
 
   const loadMore = () => {
     setItemsToShow(prev => prev + 20);
@@ -60,9 +54,9 @@ export function CastCard() {
                 className={`${styles.favorite} ${
                   favorites.includes(char.id) ? styles.active : ""
                 }`}
-                onClick={() => toggleFavorite(char.id)}
+                onClick={() => toggleFavorite(char)}
               >
-                {favorites.includes(char.id) ? "★ Favorito" : "☆ Favorito"}
+                {favorites.includes(char) ? "★ Favorito" : "☆ Favorito"}
               </motion.button>
               <motion.button whileHover={{ scale: 1.05 }} className={styles.moreInfo}>
                 Mais Info
@@ -73,7 +67,7 @@ export function CastCard() {
       ))}
     </div>
 
-    {visibleChars.length < allCharacters.length && (
+    {visibleChars.length < allCast.length && (
       <div className={styles.loadingContainer}>
         <button onClick={loadMore} className={styles.loading}>
           Carregar mais
@@ -84,4 +78,3 @@ export function CastCard() {
 );
 
 }
-
