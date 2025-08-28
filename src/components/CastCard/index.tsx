@@ -50,14 +50,17 @@ export function CastCard() {
             <p className={styles.nickname}>{char.character}</p>
             <div className={styles.actions}>
               <motion.button
-                whileTap={{ scale: 0.9 }} // anima ao clicar
+                whileTap={{ scale: 0.6 }}
+                animate={{ scale: favorites.some((fav: AllCast) => fav.id === char.id) ? 1.2 : 1 }}
+                transition={{ duration: 0.2 }}
                 className={`${styles.favorite} ${
-                  favorites.includes(char.id) ? styles.active : ""
+                  favorites.some((fav: AllCast) => fav.id === char.id) ? styles.active : ""
                 }`}
                 onClick={() => toggleFavorite(char)}
               >
-                {favorites.includes(char) ? "★ Favorito" : "☆ Favorito"}
+                {favorites.some(fav => fav.id === char.id) ? "★ Favorito" : "☆ Favorito"}
               </motion.button>
+
               <motion.button whileHover={{ scale: 1.05 }} className={styles.moreInfo}>
                 Mais Info
               </motion.button>
