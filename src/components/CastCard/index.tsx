@@ -49,9 +49,8 @@ export function CastCard() {
             <h3 className={styles.name}>{char.name}</h3>
             <p className={styles.nickname}>{char.character}</p>
             <div className={styles.actions}>
-              <motion.button
-                whileTap={{ scale: 0.6 }}
-                animate={{ scale: favorites.some((fav: AllCast) => fav.id === char.id) ? 1.2 : 1 }}
+              <motion.button       
+                animate={{ scale: favorites.some((fav: AllCast) => fav.id === char.id) ? 1 : 1 }}
                 transition={{ duration: 0.2 }}
                 className={`${styles.favorite} ${
                   favorites.some((fav: AllCast) => fav.id === char.id) ? styles.active : ""
