@@ -15,7 +15,6 @@ export const AllCastProvider: React.FC<AllCastContextProviderProps> = ({
     allCast: [],
     loading: false,
     error: null,
-    // favorites: [],
     favorites: JSON.parse(localStorage.getItem("favorites") || "[]"),
   });
 
