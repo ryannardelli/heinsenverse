@@ -57,7 +57,7 @@ export function CastCard() {
                 }`}
                 onClick={() => toggleFavorite(char)}
               >
-                {favorites.some(fav => fav.id === char.id) ? "★ Favorito" : "☆ Favorito"}
+                {favorites.some((fav: AllCast) => fav.id === char.id) ? "★ Favorito" : "☆ Favorito"}
               </motion.button>
 
               <motion.button whileHover={{ scale: 1.05 }} className={styles.moreInfo}>

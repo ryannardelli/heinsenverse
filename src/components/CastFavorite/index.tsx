@@ -1,16 +1,11 @@
 import styles from './styles.module.css';
 
-import { useEffect } from "react";
 import { useAllCastContext } from "../../hooks/useAllCastContext";
 import Heading from "../Heading";
 import { FavoriteCastCard } from "../FavoriteCastCard";
 
 export function CastFavorite() {
-    const { favorites } = useAllCastContext();
-
-    useEffect(() => {
-        console.log(favorites);
-    }, [favorites])
+    const { favorites, toggleFavorite } = useAllCastContext();
 
     if(favorites.length === 0) {
         return(
@@ -24,13 +19,18 @@ export function CastFavorite() {
     return(
         <>
         <Heading>Elenco Favoritado</Heading>
+
         <div className={styles.gridContainer}>
             {favorites.map(char => (
                 <FavoriteCastCard
+                    title='Remover dos favoritos'
+                    ariaLabel="Remover dos favoritos"
                     key={char.id}
                     image={char.imageUrl}
                     name={char.name}
                     nickname={char.character || ""}
+                    isFavorite={favorites.some(fav => fav.id === char.id)}
+                    onToggleFavorite={() => toggleFavorite(char)}
                 />
             ))}
 
