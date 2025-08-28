@@ -15,12 +15,17 @@ export const AllCastProvider: React.FC<AllCastContextProviderProps> = ({
     allCast: [],
     loading: false,
     error: null,
-    favorites: [],
+    // favorites: [],
+    favorites: JSON.parse(localStorage.getItem("favorites") || "[]"),
   });
 
   const toggleFavorite = (character: AllCast) => {
     dispatch({ type: "TOGGLE_FAVORITE", payload: character })
   }
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(state.favorites));
+  }, [state.favorites])
 
   useEffect(() => {
     const loadAllCharacters = async () => {
@@ -41,7 +46,6 @@ export const AllCastProvider: React.FC<AllCastContextProviderProps> = ({
   }, []);
 
   return (
-    // <AllCastContext.Provider value={state}>{children}</AllCastContext.Provider>
     <AllCastContext.Provider value={{
       ...state,
       toggleFavorite

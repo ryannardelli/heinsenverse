@@ -12,7 +12,6 @@ type Action =
   | { type: 'FETCH_SUCCESS'; payload: AllCast[] }
   | { type: 'FETCH_ERROR'; payload: string }
   | { type: 'SET_CHARACTERS'; payload: AllCast[] }
-  // | { type: 'TOGGLE_FAVORITE'; payload: number };
   | { type: 'TOGGLE_FAVORITE'; payload: AllCast };
 
 export function allCastReducer(state: State, action: Action): State {
@@ -26,13 +25,6 @@ export function allCastReducer(state: State, action: Action): State {
     case "SET_CHARACTERS":
       return { ...state, allCast: action.payload, loading: false }
     case "TOGGLE_FAVORITE":
-      console.log("payload:", action.payload);
-  console.log("favorites before:", state.favorites);
-      // return {
-      //   ...state,
-      //   favorites: state.favorites.includes(action.payload) ? state.favorites.filter(id => id !== action.payload)
-      //   : [...state.favorites, action.payload]
-      // }
       return {
         ...state,
         favorites: state.favorites.some(f => f.id === action.payload.id)
