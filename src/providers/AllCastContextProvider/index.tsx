@@ -1,8 +1,8 @@
 import { useEffect, useReducer } from 'react';
-import { allCastReducer } from '../../reducers/AllCast';
-import { fetchAllCharacters } from '../../services/charactersApi';
+import { allCastReducer } from '../../reducers/AllCastReducer';
 import { AllCastContext } from '../../contexts/AllCastContext';
 import type { AllCast } from '../../models/AllCast';
+import { fetchAllCast } from '../../services/CastApi';
 
 type AllCastContextProviderProps = {
   children: React.ReactNode;
@@ -27,21 +27,21 @@ export const AllCastProvider: React.FC<AllCastContextProviderProps> = ({
   }, [state.favorites])
 
   useEffect(() => {
-    const loadAllCharacters = async () => {
+    const loadAllCast = async () => {
       dispatch({ type: 'FETCH_START' });
 
       try {
-        const data = await fetchAllCharacters();
+        const data = await fetchAllCast();
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch {
         dispatch({
           type: 'FETCH_ERROR',
-          payload: 'Erro ao carregar personagens.',
+          payload: 'Erro ao carregar elenco.',
         });
       }
     };
 
-    loadAllCharacters();
+    loadAllCast();
   }, []);
 
   return (

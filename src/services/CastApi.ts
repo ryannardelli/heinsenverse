@@ -12,7 +12,7 @@ async function fetchBaseUrl(): Promise<string> {
 }
 
 // Função principal para coletar todos os personagens (otimizada)
-export async function fetchAllCharacters(): Promise<any[]> {
+export async function fetchAllCast(): Promise<any[]> {
   const base_url = await fetchBaseUrl();
 
   // endpoint agregado -> retorna todos os personagens da série inteira
