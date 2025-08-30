@@ -3,6 +3,8 @@ import styles from "./styles.module.css";
 import { motion } from "framer-motion";
 import { useAllCastContext } from "../../hooks/useAllCastContext";
 import { ButtonFavorite } from "../ButtonFavorite";
+import { ButtonLoadMore } from "../ButtonLoadMore";
+import { loadMoreItems } from "../../utils/loadMoreItems";
 
 type AllCast = {
   id: number;
@@ -26,12 +28,10 @@ export function CastCard() {
   if (loading) return <p style={{textAlign: "center"}}>Carregando elenco...</p>
   if (error) return <p style={{textAlign: "center"}}>Erro: {error}</p>
 
-  const loadMore = () => {
-    setItemsToShow(prev => prev + 20);
-  };
+  const loadMore = () => loadMoreItems(setItemsToShow, 20);
 
   return (
-  <>
+  <div>
     <div className={styles.grid}>
       
       {visibleChars.map(char => {
@@ -69,13 +69,11 @@ export function CastCard() {
       })}
     </div>
 
-    {visibleChars.length < allCast.length && (
-      <div className={styles.loadingContainer}>
-        <button onClick={loadMore} className={styles.loading}>
-          Carregar mais
-        </button>
-      </div>
-    )}
-  </>
+    <ButtonLoadMore
+        hasMore={visibleChars.length < allCast.length}
+        onLoadMore={loadMore}
+        label="Carregar mais"
+    />
+  </div>
 );
 }
