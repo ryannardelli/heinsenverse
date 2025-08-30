@@ -44,44 +44,6 @@
   margin: 0;
 }
 
-.actions {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-button {
-  cursor: pointer;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  transition: all 0.2s;
-}
-
-.favorite {
-  background-color: #444;
-  color: #fff;
-}
-
-.favorite.active {
-  background-color: #f5c518;
-  color: #000;
-}
-
-.favorite:hover {
-  opacity: 0.9;
-}
-
-.moreInfo {
-  background-color: #333;
-  color: #fff;
-}
-
-.moreInfo:hover {
-  background-color: #555;
-}
-
 .loadingContainer {
   display: flex;
   justify-content: center;
