@@ -13,6 +13,7 @@ export function CastFavorite() {
   return (
     <>
       <Heading>Elenco Favoritado</Heading>
+      
       <div className={styles.gridContainer}>
         {favorites.map(char => (
           <FavoriteCastCard
@@ -22,7 +23,7 @@ export function CastFavorite() {
             image={char.imageUrl}
             name={char.name}
             nickname={char.character || ""}
-            isFavorite={true}
+            isFavorite={true} // sempre true, porque só mostra favoritos
             onToggleFavorite={() => toggleFavorite(char)}
           />
         ))}

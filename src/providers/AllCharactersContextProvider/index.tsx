@@ -8,12 +8,12 @@ type AllCharactersProviderProps = {
   children: React.ReactNode;
 };
 
-export const AllCharactersProvider: React.FC<AllCharactersProviderProps> = ({ children }) => {
+export const AllCharactersContextProvider: React.FC<AllCharactersProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(allCharactersReducer, {
     allCharacters: [],
     loading: false,
     error: null,
-    favorites: JSON.parse(localStorage.getItem("favorites") || "[]") as AllCharacters[],
+    favorites: JSON.parse(localStorage.getItem("characterFavorites") || "[]") as AllCharacters[],
   });
 
   const toggleFavorite = (character: AllCharacters) => {

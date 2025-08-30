@@ -15,7 +15,7 @@ export const AllCastProvider: React.FC<AllCastContextProviderProps> = ({
     allCast: [],
     loading: false,
     error: null,
-    favorites: JSON.parse(localStorage.getItem("favorites") || "[]") as AllCast[],
+    favorites: JSON.parse(localStorage.getItem("castFavorites") || "[]") as AllCast[],
   } as AllCastState);
 
   const toggleFavorite = (character: AllCast) => {
