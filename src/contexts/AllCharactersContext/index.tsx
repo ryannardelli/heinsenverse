@@ -5,6 +5,8 @@ export type AllCharactersProps = {
     allCharacters: AllCharacters[],
     loading: boolean,
     error: string | null,
+    favorites: number[],
+    toggleFavorite: (id: number) => void;
 }
 
 export const AllCharactersContext = createContext<AllCharactersProps | undefined>(undefined);

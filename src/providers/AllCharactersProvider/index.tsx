@@ -2,6 +2,7 @@ import { useEffect, useReducer } from "react";
 import { AllCharactersContext } from "../../contexts/AllCharactersContext";
 import { allCharactersReducer } from "../../reducers/AllCharactersReducer";
 import { fetchAllCharacters } from "../../services/Character";
+import type { AllCharacters } from "../../models/AllCharacters";
 
 type AllCharactersProviderProps = {
   children: React.ReactNode;
@@ -12,7 +13,12 @@ export const AllCharactersProvider: React.FC<AllCharactersProviderProps> = ({ ch
     allCharacters: [],
     loading: false,
     error: null,
+    favorites: JSON.parse(localStorage.getItem("favorites") || "[]") as AllCharacters[],
   });
+
+  const toggleFavorite = (character: AllCharacters) => {
+    dispatch({ type: "TOGGLE_FAVORITE", payload: character })
+  }
 
   useEffect(() => {
     const loadAllCharacters = async () => {
@@ -33,7 +39,10 @@ export const AllCharactersProvider: React.FC<AllCharactersProviderProps> = ({ ch
   }, []);
 
   return (
-    <AllCharactersContext.Provider value={{ ...state }}>
+    <AllCharactersContext.Provider value={{
+       ...state,
+       toggleFavorite
+       }}>
       {children}
     </AllCharactersContext.Provider>
   );

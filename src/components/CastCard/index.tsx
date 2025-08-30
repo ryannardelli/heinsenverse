@@ -23,7 +23,7 @@ export function CastCard() {
     setVisibleChars(allCast.slice(0, itemsToShow));
   }, [allCast, itemsToShow]);
 
-  if (loading) return <p style={{textAlign: "center"}}>Carregando personagens...</p>
+  if (loading) return <p style={{textAlign: "center"}}>Carregando elenco...</p>
   if (error) return <p style={{textAlign: "center"}}>Erro: {error}</p>
 
   const loadMore = () => {
@@ -33,6 +33,7 @@ export function CastCard() {
   return (
   <>
     <div className={styles.grid}>
+      
       {visibleChars.map(char => {
         
         const isFavorite = favorites.some((fav: AllCast) => fav.id === char.id);
