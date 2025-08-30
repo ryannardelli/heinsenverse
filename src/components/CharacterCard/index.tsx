@@ -25,46 +25,46 @@ export function CharacterCard() {
 
     return (
       <div>
-           <div className={styles.grid}>
-        {visibleChars.map((char) => {
-          
-          const isFavorite = favorites.some((fav: AllCharacters) => fav.character.id === char.character.id);
+        <div className={styles.grid}>
+          {visibleChars.map((char) => {
+            
+            const isFavorite = favorites.some((fav: AllCharacters) => fav.character.id === char.character.id);
 
-          return (
-            <motion.div
-              key={char.character.id}
-              className={styles.card}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >   
-              <div className={styles.card}>
-                <img
-                  src={char.character.image?.original} 
-                  alt={char.character.name}
-                  className={styles.image}
-                />
-
-                <div className={styles.info}>
-                  <h3 className={styles.name}>{char.character.name}</h3>
-                  <div className={styles.actions}>
-                  <ButtonFavorite 
-                    isActive={isFavorite}
-                    ontoggle={() => toggleFavorite(char)} 
+            return (
+              <motion.div
+                key={char.character.id}
+                className={styles.card}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >   
+                <div className={styles.card}>
+                  <img
+                    src={char.character.image?.original} 
+                    alt={char.character.name}
+                    className={styles.image}
                   />
-                </div>     
-                </div>
-              </div>
-            </motion.div>
-          );
-        })}
-      </div>
 
-      <ButtonLoadMore
-          hasMore={visibleChars.length < allCharacters.length}
-          onLoadMore={loadMore}
-          label='Carregar mais'
-        />
-      </div>
+                  <div className={styles.info}>
+                    <h3 className={styles.name}>{char.character.name}</h3>
+                    <div className={styles.actions}>
+                    <ButtonFavorite 
+                      isActive={isFavorite}
+                      ontoggle={() => toggleFavorite(char)} 
+                    />
+                  </div>     
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <ButtonLoadMore
+            hasMore={visibleChars.length < allCharacters.length}
+            onLoadMore={loadMore}
+            label='Carregar mais'
+          />
+        </div>
 );
 }
