@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from 'react';
-import { allCastReducer } from '../../reducers/AllCastReducer';
+import { allCastReducer, type AllCastState } from '../../reducers/AllCastReducer';
 import { AllCastContext } from '../../contexts/AllCastContext';
 import type { AllCast } from '../../models/AllCast';
 import { fetchAllCast } from '../../services/CastApi';
@@ -15,8 +15,8 @@ export const AllCastProvider: React.FC<AllCastContextProviderProps> = ({
     allCast: [],
     loading: false,
     error: null,
-    favorites: JSON.parse(localStorage.getItem("favorites") || "[]"),
-  });
+    favorites: JSON.parse(localStorage.getItem("favorites") || "[]") as AllCast[],
+  } as AllCastState);
 
   const toggleFavorite = (character: AllCast) => {
     dispatch({ type: "TOGGLE_FAVORITE", payload: character })

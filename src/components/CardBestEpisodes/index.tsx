@@ -25,8 +25,8 @@ export function CardBestEpisodes({ title, overview, voteAverage, seasonNumber, e
         </div>
 
         <div className="genre">
-          <span style={{ ["--i" as any]: 1 }}>Temporada {seasonNumber}</span>
-          <span style={{ ["--i" as any]: 2 }}>Episódio {episodeNumber}</span>
+          <span style={{ ["--i" as keyof React.CSSProperties]: 1 }}>Temporada {seasonNumber}</span>
+          <span style={{ ["--i" as keyof React.CSSProperties]: 2 }}>Episódio {episodeNumber}</span>
         </div>
       </div>
     </>

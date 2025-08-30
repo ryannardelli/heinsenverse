@@ -1,7 +1,8 @@
 type BestCharacters = {
     name: string;
     character: string;
-    popularity: number;
+    popularity: string;
+    image: string;
 }
 
 export function CardBestCharacters({ name, character, popularity }: BestCharacters) {

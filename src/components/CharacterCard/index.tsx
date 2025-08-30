@@ -20,7 +20,8 @@ export function CharacterCard() {
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                >
+                >   
+                <div className={styles.card}>
                     <img
                         src={char.character.image?.original} // verifica se existe
                         alt={char.character.name}
@@ -30,6 +31,7 @@ export function CharacterCard() {
                     <div className={styles.info}>
                         <h3 className={styles.name}>{char.character.name}</h3>                  
                     </div>
+                </div>
                 </motion.div>
             ))}
         </div>

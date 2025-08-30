@@ -54,8 +54,8 @@ export function BestCharactersList() {
               <CardBestCharacters
                 name={characters.name}
                 character={characters.character}
-                popularity={Number(characters.popularity.toFixed(2))}
-                image={characters.image ?? '/fallback.jpg'}
+                popularity={Number(characters.popularity).toFixed(2)}
+                image={characters.imageUrl ?? '/fallback.jpg'}
               />
             </SwiperSlide>
           ))}

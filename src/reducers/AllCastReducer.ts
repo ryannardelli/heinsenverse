@@ -1,6 +1,6 @@
 import type { AllCast } from '../models/AllCast';
 
-type State = {
+export type AllCastState = {
   allCast: AllCast[];
   loading: boolean;
   error: string | null;
@@ -14,7 +14,7 @@ type Action =
   | { type: 'SET_CHARACTERS'; payload: AllCast[] }
   | { type: 'TOGGLE_FAVORITE'; payload: AllCast };
 
-export function allCastReducer(state: State, action: Action): State {
+export function allCastReducer(state: AllCastState, action: Action): AllCastState {
   switch (action.type) {
     case 'FETCH_START':
       return { ...state, loading: true, error: null };
