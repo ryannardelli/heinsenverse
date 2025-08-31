@@ -1,5 +1,5 @@
 import styles from './styles.module.css';
-import { SearchCheck } from 'lucide-react';
+import { SearchIcon } from 'lucide-react';
 
 type SearchProps = {
    value: string;
@@ -11,7 +11,7 @@ export function Search({ value, onChange, placeholder = "Pesquisar" }: SearchPro
     return(
     <form>
         <div className={styles.search}>
-            <SearchCheck color='#00000040' />
+            <SearchIcon color='#00000040' />
             <input 
                 type="search" 
                 className={styles.searchInput} 
