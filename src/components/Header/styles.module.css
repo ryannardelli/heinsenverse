@@ -9,7 +9,7 @@ a {
 }
 
 a:hover {
-	color: orange;
+	color: #66fcf1;
 }
 
 header {
@@ -68,6 +68,10 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.currentRouter {
+	color: #00FFFF;
 }
 
 /* responsive */
