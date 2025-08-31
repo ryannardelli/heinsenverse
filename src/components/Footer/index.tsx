@@ -1,4 +1,6 @@
+import { Github, Linkedin } from 'lucide-react';
 import styles from './styles.module.css';
+import { RouterLinks } from '../RouterLinks';
 
 export function Footer() {
   return (
@@ -11,17 +13,47 @@ export function Footer() {
 
         <div className={styles.links}>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#characters">Personagens</a></li>
-            <li><a href="#episodes">Episódios</a></li>
-            <li><a href="#about">Sobre</a></li>
+            <RouterLinks href='/'>
+              Home
+            </RouterLinks>
+            <li>
+              <RouterLinks href='/episodes'>
+                Episódios
+              </RouterLinks>
+            </li>
+            <li>
+              <RouterLinks href='/characters'>
+                Personagens
+            </RouterLinks>
+            </li>
+            <li>
+              <RouterLinks href='/cast'>
+                  Elenco
+              </RouterLinks>
+            </li>
+
+            <li>
+              <RouterLinks href='/favorites'>
+                  Favoritos
+              </RouterLinks>
+            </li>
+
+             <li>
+              <RouterLinks href='/about'>
+                  Sobre
+              </RouterLinks>
+            </li>
           </ul>
         </div>
 
         <div className={styles.social}>
-          <a href="#" aria-label="Facebook">FB</a>
-          <a href="#" aria-label="Twitter">TW</a>
-          <a href="#" aria-label="Instagram">IG</a>
+          <a href="https://www.linkedin.com/in/ryannardelli/" target='_blank'>
+              <Linkedin size={30} />
+          </a>
+
+          <a href="https://github.com/ryannardelli" target='_blank'>
+              <Github size={30} />
+          </a>
         </div>
       </div>
 

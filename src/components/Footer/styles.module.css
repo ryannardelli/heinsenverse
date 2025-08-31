@@ -3,6 +3,7 @@
   color: #c5c6c7;
   padding: 2rem 1rem 1rem;
   font-family: 'Arial', sans-serif;
+  margin-top: 30px;
 }
 
 .container {
@@ -41,6 +42,11 @@
 
 .links a:hover {
   color: #66fcf1;
+}
+
+.social {
+  display: flex;
+  gap: 10px;
 }
 
 .social a {
