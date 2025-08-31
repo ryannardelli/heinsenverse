@@ -4,21 +4,33 @@ import { useAllCharactersContext } from "../../hooks/useAllCharactersContext";
 import { motion } from 'framer-motion';
 import type { AllCharacters } from '../../models/AllCharacters';
 import { ButtonFavorite } from '../ButtonFavorite';
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { ButtonLoadMore } from '../ButtonLoadMore';
 import { loadMoreItems } from '../../utils/loadMoreItems';
 import { ContainerSearch } from '../ContainerSearch';
 import { Search } from '../Search';
+import { FilterCharacterReducer } from '../../reducers/FilterCharacterReducer';
 
 export function CharacterCard() {
     const { allCharacters, loading, error, favorites, toggleFavorite } = useAllCharactersContext();
 
+    const [filterState, dispatch] = useReducer(FilterCharacterReducer, { search: "" })
+
     const [itemsToShow, setItemsToShow] = useState(10);
     const [visibleChars, setVisibleChars] = useState<AllCharacters[]>([]);
 
+    // useEffect(() => {
+    //     setVisibleChars(allCharacters.slice(0, itemsToShow));
+    // }, [allCharacters, itemsToShow]);
+
     useEffect(() => {
-        setVisibleChars(allCharacters.slice(0, itemsToShow));
-    }, [allCharacters, itemsToShow]);
+    // aplica o filtro ANTES da paginação
+    const filtered = allCharacters.filter((char) =>
+      char.character.name.toLowerCase().includes(filterState.search.toLowerCase())
+    );
+
+    setVisibleChars(filtered.slice(0, itemsToShow));
+  }, [allCharacters, itemsToShow, filterState.search]);
 
     if (loading) return <p style={{textAlign: "center"}}>Carregando personagens...</p>
     if (error) return <p style={{textAlign: "center"}}>Erro: {error}</p>
@@ -29,7 +41,7 @@ export function CharacterCard() {
       <div>
 
         <ContainerSearch>
-              <Search />
+              <Search state={filterState} dispatch={dispatch} />
         </ContainerSearch>
         
         <div className={styles.grid}>

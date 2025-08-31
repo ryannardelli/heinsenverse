@@ -35,9 +35,9 @@ export function CastCard() {
   return (
   <div>
 
-    <ContainerSearch>
+    {/* <ContainerSearch>
       <Search />
-    </ContainerSearch>
+    </ContainerSearch> */}
   
     <div className={styles.grid}>
       
