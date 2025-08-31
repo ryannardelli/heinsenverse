@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import styles from "./styles.module.css";
 import { motion } from "framer-motion";
 import { useAllCastContext } from "../../hooks/useAllCastContext";
@@ -7,6 +7,7 @@ import { ButtonLoadMore } from "../ButtonLoadMore";
 import { loadMoreItems } from "../../utils/loadMoreItems";
 import { Search } from "../Search";
 import { ContainerSearch } from "../ContainerSearch";
+import { FilterCastReducer } from "../../reducers/FilterCastReducer";
 
 type AllCast = {
   id: number;
@@ -18,14 +19,20 @@ type AllCast = {
 export function CastCard() {
 
   const { allCast, loading, error, toggleFavorite, favorites } = useAllCastContext();
+
+  const [filterState, dispatch] = useReducer(FilterCastReducer, { search: "" });
   
   // Quantos personagens mostrar
   const [itemsToShow, setItemsToShow] = useState(10);
   const [visibleChars, setVisibleChars] = useState<AllCast[]>([]);
 
   useEffect(() => {
-    setVisibleChars(allCast.slice(0, itemsToShow));
-  }, [allCast, itemsToShow]);
+  const filtered = allCast.filter((char) =>
+    char.name.toLowerCase().includes(filterState.search.toLowerCase())
+  );
+
+  setVisibleChars(filtered.slice(0, itemsToShow));
+}, [allCast, itemsToShow, filterState.search]);
 
   if (loading) return <p style={{textAlign: "center"}}>Carregando elenco...</p>
   if (error) return <p style={{textAlign: "center"}}>Erro: {error}</p>
@@ -35,9 +42,13 @@ export function CastCard() {
   return (
   <div>
 
-    {/* <ContainerSearch>
-      <Search />
-    </ContainerSearch> */}
+    <ContainerSearch>
+      <Search
+          value={filterState.search}
+          onChange={(val) => dispatch({ type: "SET_SEARCH", payload: val })}
+          placeholder="Buscar elenco..."
+      />
+    </ContainerSearch>
   
     <div className={styles.grid}>
       

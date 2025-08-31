@@ -14,17 +14,12 @@ import { FilterCharacterReducer } from '../../reducers/FilterCharacterReducer';
 export function CharacterCard() {
     const { allCharacters, loading, error, favorites, toggleFavorite } = useAllCharactersContext();
 
-    const [filterState, dispatch] = useReducer(FilterCharacterReducer, { search: "" })
+    const [filterState, dispatch] = useReducer(FilterCharacterReducer, { search: "" });
 
     const [itemsToShow, setItemsToShow] = useState(10);
     const [visibleChars, setVisibleChars] = useState<AllCharacters[]>([]);
 
-    // useEffect(() => {
-    //     setVisibleChars(allCharacters.slice(0, itemsToShow));
-    // }, [allCharacters, itemsToShow]);
-
-    useEffect(() => {
-    // aplica o filtro ANTES da paginação
+  useEffect(() => {
     const filtered = allCharacters.filter((char) =>
       char.character.name.toLowerCase().includes(filterState.search.toLowerCase())
     );
@@ -41,7 +36,11 @@ export function CharacterCard() {
       <div>
 
         <ContainerSearch>
-              <Search state={filterState} dispatch={dispatch} />
+              <Search 
+                value={filterState.search}
+                onChange={(val) => dispatch({ type: "SET_SEARCH", payload: val })}
+                placeholder='Buscar personagens...'
+              />
         </ContainerSearch>
         
         <div className={styles.grid}>

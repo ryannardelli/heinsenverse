@@ -1,14 +1,13 @@
-import type { FilterCharacter } from '../../models/FilterCharacter';
-import type { FilterActionSearch } from '../../reducers/FilterCharacterReducer';
 import styles from './styles.module.css';
 import { SearchCheck } from 'lucide-react';
 
 type SearchProps = {
-    state: FilterCharacter,
-    dispatch: React.Dispatch<FilterActionSearch>;
+   value: string;
+   onChange: (value: string) => void;
+   placeholder?: string;
 }
 
-export function Search({ state, dispatch }: SearchProps) {
+export function Search({ value, onChange, placeholder = "Pesquisar" }: SearchProps) {
     return(
     <form>
         <div className={styles.search}>
@@ -16,9 +15,9 @@ export function Search({ state, dispatch }: SearchProps) {
             <input 
                 type="search" 
                 className={styles.searchInput} 
-                placeholder='Pesquise aqui...'
-                value={state.search}
-                onChange={(e) => dispatch({ type: "SET_SEARCH", payload: e.target.value })}
+                placeholder={placeholder}
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
              />
         </div>
     </form>
