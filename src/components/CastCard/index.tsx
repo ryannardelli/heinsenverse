@@ -5,6 +5,8 @@ import { useAllCastContext } from "../../hooks/useAllCastContext";
 import { ButtonFavorite } from "../ButtonFavorite";
 import { ButtonLoadMore } from "../ButtonLoadMore";
 import { loadMoreItems } from "../../utils/loadMoreItems";
+import { Search } from "../Search";
+import { ContainerSearch } from "../ContainerSearch";
 
 type AllCast = {
   id: number;
@@ -32,6 +34,11 @@ export function CastCard() {
 
   return (
   <div>
+
+    <ContainerSearch>
+      <Search />
+    </ContainerSearch>
+  
     <div className={styles.grid}>
       
       {visibleChars.map(char => {

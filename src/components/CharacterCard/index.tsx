@@ -7,6 +7,8 @@ import { ButtonFavorite } from '../ButtonFavorite';
 import { useEffect, useState } from 'react';
 import { ButtonLoadMore } from '../ButtonLoadMore';
 import { loadMoreItems } from '../../utils/loadMoreItems';
+import { ContainerSearch } from '../ContainerSearch';
+import { Search } from '../Search';
 
 export function CharacterCard() {
     const { allCharacters, loading, error, favorites, toggleFavorite } = useAllCharactersContext();
@@ -25,6 +27,11 @@ export function CharacterCard() {
 
     return (
       <div>
+
+        <ContainerSearch>
+              <Search />
+        </ContainerSearch>
+        
         <div className={styles.grid}>
           {visibleChars.map((char) => {
             
