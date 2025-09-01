@@ -5,7 +5,7 @@ export type AllCastContextProps = {
   allCast: AllCast[];
   loading: boolean;
   error: string | null;
-  favorites: number[];
+  favoritesCast: number[];
   toggleFavorite: (id: number) => void;
 };
 

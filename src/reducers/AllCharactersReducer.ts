@@ -4,7 +4,7 @@ type State = {
   allCharacters: AllCharacters[];
   loading: boolean;
   error: string | null;
-  favorites: AllCharacters[];
+  favoritesCharacter: AllCharacters[];
 };
 
 type Action =
@@ -24,9 +24,9 @@ export function allCharactersReducer(state: State, action: Action): State {
     case 'TOGGLE_FAVORITE':
       return {
         ...state,
-        favorites: state.favorites.some(f => f.character.id === action.payload.character.id)
-        ? state.favorites.filter(f => f.character.id !== action.payload.character.id)
-        : [...state.favorites, action.payload],
+        favoritesCharacter: state.favoritesCharacter.some(f => f.character.id === action.payload.character.id)
+        ? state.favoritesCharacter.filter(f => f.character.id !== action.payload.character.id)
+        : [...state.favoritesCharacter, action.payload],
       };
 
     default:

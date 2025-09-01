@@ -12,7 +12,7 @@ import { Search } from '../Search';
 import { FilterCharacterReducer } from '../../reducers/FilterCharacterReducer';
 
 export function CharacterCard() {
-    const { allCharacters, loading, error, favorites, toggleFavorite } = useAllCharactersContext();
+    const { allCharacters, loading, error, favoritesCharacter, toggleFavorite } = useAllCharactersContext();
 
     const [filterState, dispatch] = useReducer(FilterCharacterReducer, { search: "" });
 
@@ -46,7 +46,7 @@ export function CharacterCard() {
         <div className={styles.grid}>
           {visibleChars.map((char) => {
             
-            const isFavorite = favorites.some((fav: AllCharacters) => fav.character.id === char.character.id);
+            const isFavorite = favoritesCharacter.some((fav: AllCharacters) => fav.character.id === char.character.id);
 
             return (
               <motion.div

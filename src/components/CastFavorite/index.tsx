@@ -5,17 +5,17 @@ import { FavoriteCastCard } from "../FavoriteCastCard";
 import Heading from '../Heading';
 
 export function CastFavorite() {
-  const { favorites, toggleFavorite } = useAllCastContext();
+  const { favoritesCast, toggleFavorite } = useAllCastContext();
 
   // só renderiza se houver favoritos
-  if (favorites.length === 0) return null;
+  if (favoritesCast.length === 0) return null;
 
   return (
     <>
       <Heading>Elenco Favoritado</Heading>
       
       <div className={styles.gridContainer}>
-        {favorites.map(char => (
+        {favoritesCast.map(char => (
           <FavoriteCastCard
             key={char.id}
             title="Remover dos favoritos"

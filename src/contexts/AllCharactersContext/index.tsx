@@ -5,7 +5,7 @@ export type AllCharactersProps = {
     allCharacters: AllCharacters[],
     loading: boolean,
     error: string | null,
-    favorites: number[],
+    favoritesCharacter: number[],
     toggleFavorite: (id: number) => void;
 }
 

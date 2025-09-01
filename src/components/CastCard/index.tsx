@@ -18,7 +18,7 @@ type AllCast = {
 
 export function CastCard() {
 
-  const { allCast, loading, error, toggleFavorite, favorites } = useAllCastContext();
+  const { allCast, loading, error, toggleFavorite, favoritesCast } = useAllCastContext();
 
   const [filterState, dispatch] = useReducer(FilterCastReducer, { search: "" });
   
@@ -54,7 +54,7 @@ export function CastCard() {
       
       {visibleChars.map(char => {
         
-        const isFavorite = favorites.some((fav: AllCast) => fav.id === char.id);
+        const isFavorite = favoritesCast.some((fav: AllCast) => fav.id === char.id);
 
         return (
           <motion.div

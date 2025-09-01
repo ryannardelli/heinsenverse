@@ -4,7 +4,7 @@ export type AllCastState = {
   allCast: AllCast[];
   loading: boolean;
   error: string | null;
-  favorites: AllCast[];
+  favoritesCast: AllCast[];
 };
 
 type Action =
@@ -27,9 +27,9 @@ export function allCastReducer(state: AllCastState, action: Action): AllCastStat
     case "TOGGLE_FAVORITE":
       return {
         ...state,
-        favorites: state.favorites.some(f => f.id === action.payload.id)
-        ? state.favorites.filter(f => f.id !== action.payload.id)
-        : [...state.favorites, action.payload]
+        favoritesCast: state.favoritesCast.some(f => f.id === action.payload.id)
+        ? state.favoritesCast.filter(f => f.id !== action.payload.id)
+        : [...state.favoritesCast, action.payload]
       }
     default:
       return state;

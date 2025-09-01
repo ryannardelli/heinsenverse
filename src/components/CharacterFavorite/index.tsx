@@ -6,21 +6,21 @@ import { FavoriteCharacterCard } from '../FavoriteCharacterCard';
 import { useEffect } from 'react';
 
 export function CharacterFavorite() {
-  const { favorites, toggleFavorite } = useAllCharactersContext();
+  const { favoritesCharacter, toggleFavorite } = useAllCharactersContext();
 
   useEffect(() => {
-    console.log(favorites);
-  }, [favorites])
+    console.log(favoritesCharacter);
+  }, [favoritesCharacter])
 
   // só renderiza se houver favoritos
-  if (favorites.length === 0) return null;
+  if (favoritesCharacter.length === 0) return null;
 
   return (
     <>
       <Heading>Personagens Favoritado</Heading>
 
       <div className={styles.gridContainer}>
-        {favorites.map(char => (
+        {favoritesCharacter.map(char => (
           <FavoriteCharacterCard
             key={char.character.id}
             title="Remover dos favoritos"

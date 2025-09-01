@@ -13,8 +13,12 @@ export const AllCharactersContextProvider: React.FC<AllCharactersProviderProps> 
     allCharacters: [],
     loading: false,
     error: null,
-    favorites: JSON.parse(localStorage.getItem("characterFavorites") || "[]") as AllCharacters[],
+    favoritesCharacter: JSON.parse(localStorage.getItem("characterFavorites") || "[]") as AllCharacters[],
   });
+
+  useEffect(() => {
+    localStorage.setItem("characterFavorites", JSON.stringify(state.favoritesCharacter));
+  }, [state.favoritesCharacter]);
 
   const toggleFavorite = (character: AllCharacters) => {
     dispatch({ type: "TOGGLE_FAVORITE", payload: character })
