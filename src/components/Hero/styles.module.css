@@ -17,20 +17,56 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 1rem; /* evita texto colar nas bordas em telas pequenas */
+  box-sizing: border-box;
 }
 
 .heroContent {
   text-align: center;
   color: white;
+  max-width: 900px; /* limita largura em telas grandes */
 }
 
 .heroContent h1 {
   font-size: 4rem;
   margin-bottom: 1rem;
   font-family: 'Arial Black', sans-serif;
+  line-height: 1.2;
 }
 
 .heroContent p {
   font-size: 1.5rem;
   margin-bottom: 2rem;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .heroContent h1 {
+    font-size: 3rem;
+  }
+  .heroContent p {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 2.5rem;
+  }
+  .heroContent p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 100vh; /* mantém tela cheia */
+    padding: 1rem;
+  }
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+  .heroContent p {
+    font-size: 1rem;
+  }
 }
