@@ -1,6 +1,6 @@
 export interface AllCast {
     id: number,
     name: string;
-    character: string;
+    character?: string;
     imageUrl: string;
 }

@@ -1,5 +1,9 @@
 export interface AllCharacters {
-    id: number,
-    character: string,
-    image: string
+    character: {
+        id: number,
+        name: string,
+        image?: {
+            original: string
+        };
+    }
 }
