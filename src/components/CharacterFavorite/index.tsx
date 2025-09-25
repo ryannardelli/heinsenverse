@@ -25,7 +25,7 @@ export function CharacterFavorite() {
             key={char.character.id}
             title="Remover dos favoritos"
             ariaLabel="Remover dos favoritos"
-            image={char.character.image?.original}
+            image={char.character.image?.original ?? "/src/assets/img/default.png"}
             name={char.character.name}
             isFavorite={true}
             onToggleFavorite={() => toggleFavorite(char)}

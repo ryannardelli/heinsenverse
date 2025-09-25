@@ -6,7 +6,6 @@ export type AllCharactersProps = {
     loading: boolean,
     error: string | null,
     favoritesCharacter: AllCharacters[],
-    // toggleFavorite: (id: number) => void;
     toggleFavorite: (character: AllCharacters) => void;
 }
 
