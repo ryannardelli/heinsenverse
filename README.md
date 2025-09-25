@@ -21,7 +21,7 @@ O objetivo do projeto foi unir API's, includindo a da **API do The Movie Databas
 
 ## 🛠 Tecnologias Utilizadas
 
-- **Front-end:** React, Vite, TypeScript, TailwindCSS  
+- **Front-end:** React, Vite, TypeScript, CSS Modules 
 - **APIs externas:** The Movie Database API, Tv Make Api
 - **Extras:** Framer Motion, Lucide Icons  
 
