@@ -7,6 +7,7 @@ import Cast from "../../pages/Cast";
 import Character from "../../pages/Character";
 import Quiz from "../../pages/Quiz";
 import { ScreenLogin } from "../../pages/ScreenLogin";
+import { DashboardRouter } from "../DashboardRouter";
 
 export function MainRouter() {
     return(
@@ -20,6 +21,10 @@ export function MainRouter() {
                 <Route path="/about" element={<About />} />
                 <Route path="/favorites" element={<Favorite />} />
                 <Route path="/login" element={<ScreenLogin />} />
+
+                 {/* Rotas do dashboard */}
+                <Route path="/dashboard" element={<DashboardRouter />} />
+    
             </Routes>
         </BrowserRouter>
     );
