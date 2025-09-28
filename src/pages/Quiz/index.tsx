@@ -9,6 +9,8 @@ export default function Quiz() {
   const [score, setScore] = useState(0);
   const [started, setStarted] = useState(false);
 
+  const isAuth = false;
+
   const handleAnswer = (isCorrect) => {
     if (isCorrect) setScore(score + 1);
   };
@@ -24,9 +26,19 @@ export default function Quiz() {
           <div className={styles.startScreen}>
             <h1 className={styles.header}>Breaking Bad Quiz</h1>
             <p className={styles.message}>Teste seus conhecimentos sobre Breaking Bad!</p>
-            <button className={styles.startButton} onClick={startQuiz}>
-              Começar
-            </button>
+            {isAuth ? (
+              <button className={styles.startButton} onClick={startQuiz}>
+                Começar Quiz
+              </button>
+            ) : (
+              <div className={styles.loginPrompt}>
+                <p>
+                  Você ainda não está logado. <br />
+                  Faça login para poder começar o quiz.
+                </p>
+              </div>
+            )}
+            
           </div>
         ) : (
           <>
