@@ -5,6 +5,7 @@ import About from "../../pages/About";
 import Favorite from "../../pages/Favorite";
 import Cast from "../../pages/Cast";
 import Character from "../../pages/Character";
+import Quiz from "../../pages/Quiz";
 
 export function MainRouter() {
     return(
@@ -14,6 +15,7 @@ export function MainRouter() {
                 <Route path="/episodes" element={<Episode />} />
                 <Route path="/characters" element={<Character />} />
                 <Route path="/cast" element={<Cast />} />
+                <Route path="/quiz" element={<Quiz />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/favorites" element={<Favorite />} />
             </Routes>

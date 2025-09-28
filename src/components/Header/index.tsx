@@ -17,7 +17,7 @@ export default function Header() {
     { href: '/episodes', label: 'Episódios' },
     { href: '/characters', label: 'Personagens' },
     { href: '/cast', label: 'Elenco' },
-    { href: '/quizzles', label: 'Quizzles' },
+    { href: '/quiz', label: 'Quiz' },
     { href: '/favorites', label: 'Favoritos' },
     { href: '/about', label: 'Sobre' },
   ];
