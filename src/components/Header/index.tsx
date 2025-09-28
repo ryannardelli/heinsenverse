@@ -42,8 +42,10 @@ export default function Header() {
         ))}
       </ul>
 
-
-      <LoginButton />
+        <RouterLinks href='/login'>
+          <LoginButton />
+        </RouterLinks>
+      
 
       <div className={styles.toggleBtn} onClick={handleToggle}>
         {isOpen ? <X size={32} /> : <Menu size={32} />}

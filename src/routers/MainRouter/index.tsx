@@ -6,6 +6,7 @@ import Favorite from "../../pages/Favorite";
 import Cast from "../../pages/Cast";
 import Character from "../../pages/Character";
 import Quiz from "../../pages/Quiz";
+import { ScreenLogin } from "../../pages/ScreenLogin";
 
 export function MainRouter() {
     return(
@@ -18,6 +19,7 @@ export function MainRouter() {
                 <Route path="/quiz" element={<Quiz />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/favorites" element={<Favorite />} />
+                <Route path="/login" element={<ScreenLogin />} />
             </Routes>
         </BrowserRouter>
     );
