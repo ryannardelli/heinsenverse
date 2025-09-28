@@ -3,6 +3,7 @@ import { RouterLinks } from '../RouterLinks';
 import styles from './styles.module.css';
 import { useState } from 'react';
 import { useLocation } from 'react-router';
+import { LoginButton } from '../LoginButton';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,6 +41,9 @@ export default function Header() {
           </li>
         ))}
       </ul>
+
+
+      <LoginButton />
 
       <div className={styles.toggleBtn} onClick={handleToggle}>
         {isOpen ? <X size={32} /> : <Menu size={32} />}
