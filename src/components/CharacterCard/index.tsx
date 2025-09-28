@@ -10,6 +10,7 @@ import { loadMoreItems } from '../../utils/loadMoreItems';
 import { ContainerSearch } from '../ContainerSearch';
 import { Search } from '../Search';
 import { FilterCharacterReducer } from '../../reducers/FilterCharacterReducer';
+import { NoResult } from '../NoResult';
 
 export function CharacterCard() {
     const { allCharacters, loading, error, favoritesCharacter, toggleFavorite } = useAllCharactersContext();
@@ -43,46 +44,54 @@ export function CharacterCard() {
               />
         </ContainerSearch>
         
-        <div className={styles.grid}>
-          {visibleChars.map((char) => {
-            
-            const isFavorite = favoritesCharacter.some((fav: AllCharacters) => fav.character.id === char.character.id);
+       <div className={styles.grid}>
+  {visibleChars.length === 0 ? (
+    <NoResult>Nenhum personagem encontrado.</NoResult>
+  ) : (
+    visibleChars.map((char) => {
+      const isFavorite = favoritesCharacter.some(
+        (fav: AllCharacters) => fav.character.id === char.character.id
+      );
 
-            return (
-              <motion.div
-                key={char.character.id}
-                className={styles.card}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >   
-                <div className={styles.card}>
-                  <img
-                    src={char.character.image?.original} 
-                    alt={char.character.name}
-                    className={styles.image}
-                  />
+      return (
+        <motion.div
+          key={char.character.id}
+          className={styles.card}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className={styles.card}>
+            <img
+              src={char.character.image?.original}
+              alt={char.character.name}
+              className={styles.image}
+            />
 
-                  <div className={styles.info}>
-                    <h3 className={styles.name}>{char.character.name}</h3>
-                    <div className={styles.actions}>
-                    <ButtonFavorite 
-                      isActive={isFavorite}
-                      ontoggle={() => toggleFavorite(char)} 
-                    />
-                  </div>     
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+            <div className={styles.info}>
+              <h3 className={styles.name}>{char.character.name}</h3>
+              <div className={styles.actions}>
+                <ButtonFavorite
+                  isActive={isFavorite}
+                  ontoggle={() => toggleFavorite(char)}
+                />
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      );
+    })
+  )}
+</div>
 
-        <ButtonLoadMore
-            hasMore={visibleChars.length < allCharacters.length}
-            onLoadMore={loadMore}
-            label='Carregar mais'
-          />
-        </div>
+    {/* Só mostra o botão se tiver personagens */}
+    {visibleChars.length > 0 && (
+      <ButtonLoadMore
+        hasMore={visibleChars.length < allCharacters.length}
+        onLoadMore={loadMore}
+        label="Carregar mais"
+      />
+    )}
+  </div>
 );
 }

@@ -4,6 +4,7 @@ import { useReducer } from 'react';
 import FilterHeading from '../FilterHeadingEpisodes';
 import { FilterEpisodesReducer } from '../../reducers/FilterEpisodesReducer';
 import { motion } from 'framer-motion';
+import { NoResult } from '../NoResult';
 
 export function AllEpisodes() {
     const [state, dispatch] = useReducer(FilterEpisodesReducer, {
@@ -27,14 +28,17 @@ export function AllEpisodes() {
         return matchesSearch && matchesSeason && matchesEpisode;
   });
 
-   return (
-    <div>
-      <FilterHeading
-        state={state}
-        dispatch={dispatch}
-      />
-      <div className={styles.container}>
-        {filteredEpisodes.map((ep) => (
+  return (
+  <div>
+    <FilterHeading
+      state={state}
+      dispatch={dispatch}
+    />
+    <div className={styles.container}>
+      {filteredEpisodes.length === 0 ? (
+        <NoResult>Nenhum episódio encontrado.</NoResult>
+      ) : (
+        filteredEpisodes.map((ep) => (
           <motion.div
             key={ep.id}
             className={styles.card}
@@ -44,16 +48,24 @@ export function AllEpisodes() {
             transition={{ duration: 0.5 }}
           >
             {ep.still_path && (
-              <img src={`https://image.tmdb.org/t/p/w300${ep.still_path}`} alt={ep.name} />
+              <img
+                src={`https://image.tmdb.org/t/p/w300${ep.still_path}`}
+                alt={ep.name}
+              />
             )}
             <div className={styles.info}>
               <h3>{ep.name}</h3>
-              <p>Temporada {ep.season_number === 0 ? 1 : ep.season_number} - Episódio {ep.episode_number}</p>
+              <p>
+                Temporada {ep.season_number === 0 ? 1 : ep.season_number} - Episódio{" "}
+                {ep.episode_number}
+              </p>
               <p>{ep.overview}</p>
             </div>
           </motion.div>
-        ))}
-      </div>
+        ))
+      )}
     </div>
-  );
+  </div>
+);
+
 }
