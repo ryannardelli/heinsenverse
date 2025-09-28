@@ -61,7 +61,6 @@
 @media (max-width: 480px) {
   .hero {
     height: 100vh; /* mantém tela cheia */
-    padding: 1rem;
   }
   .heroContent h1 {
     font-size: 2rem;
