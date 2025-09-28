@@ -1,7 +1,6 @@
 .container {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;
-  padding: 40px;
   max-width: 900px;
   margin: 0 auto;
   line-height: 1.6;
@@ -33,6 +32,10 @@
   margin-bottom: 10px;
 }
 
+.textSection p {
+  text-align: center;
+}
+
 .textSection p, 
 .textSection ul {
   font-size: 1rem;
@@ -50,4 +53,71 @@
   border-top: 1px solid #ddd;
   font-size: 0.9rem;
   color: #777;
+}
+
+/* ============================= */
+/* RESPONSIVIDADE */
+/* ============================= */
+
+/* Tablets e telas médias */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 95%;
+  }
+
+  .header h1 {
+    font-size: 2.4rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .textSection h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Celulares grandes */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .textSection h2 {
+    font-size: 1.4rem;
+  }
+
+  .textSection p,
+  .textSection ul {
+    font-size: 0.95rem;
+  }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.6rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .textSection h2 {
+    font-size: 1.2rem;
+  }
+  
+  .textSection p,
+  .textSection ul {
+    font-size: 0.9rem;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+  }
 }
