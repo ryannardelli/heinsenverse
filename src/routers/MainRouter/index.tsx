@@ -8,12 +8,12 @@ import Character from "../../pages/Character";
 import Quiz from "../../pages/Quiz";
 import { ScreenLogin } from "../../pages/ScreenLogin";
 import { Dashboard } from "../../pages/Dashboard";
-import DashboardTemplate from "../../templates/DashboardTemplate";
 import MainTemplate from "../../templates/MainTemplate";
 import { PublicLayout } from "../../layout/PublicLayout";
+import DashboardTemplate from "../../templates/DashboardTemplate";
 
 export function MainRouter() {
-    const isAuthenticated = false;
+    const isAuthenticated = true;
 
     return (
         <BrowserRouter>
@@ -38,7 +38,7 @@ export function MainRouter() {
                 {/* Rotas privadas */}
                 <Route
                 path="/dashboard/*"
-                element={isAuthenticated ? <PublicLayout /> : <Navigate to="/login" />}
+                element={isAuthenticated ? <DashboardTemplate /> : <Navigate to="/login" />}
                 >
                 <Route index element={<Dashboard />} />
                 </Route>

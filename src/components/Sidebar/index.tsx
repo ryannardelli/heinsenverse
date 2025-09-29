@@ -1,5 +1,4 @@
 import { Bell, Files, LayoutDashboard, SquarePen, User } from 'lucide-react';
-import Home from '../../pages/Home';
 import { ContainerLinks } from '../ContainerLinks';
 import { IconSidebar } from '../IconSidebar';
 import styles from './styles.module.css';
@@ -9,15 +8,6 @@ export function Sidebar() {
         <div className={styles.container}>
             <div className={styles.navigation}>
                 <ul>
-                    <li>
-                        <IconSidebar href='/'>
-                            <ContainerLinks>
-                                <Home />
-                                Heinsenverse
-                            </ContainerLinks>
-                        </IconSidebar>
-                    </li>
-
                     <li>
                         <IconSidebar href='/'>
                             <ContainerLinks>
