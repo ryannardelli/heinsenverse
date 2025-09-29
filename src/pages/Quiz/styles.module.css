@@ -1,0 +1,49 @@
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.header {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffcc00;
+}
+
+.startScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.message {
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.startButton {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #0066cc;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.startButton:hover {
+  background-color: #0055aa;
+}
+
+.score {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #00ff99;
+}
+

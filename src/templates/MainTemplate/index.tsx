@@ -1,19 +1,16 @@
+import { Outlet } from "react-router";
 import Container from "../../components/Container";
 import { Footer } from "../../components/Footer";
 import Header from "../../components/Header";
 
-type MainTemplateProps = {
-  children: React.ReactNode;
-};
-
-export default function MainTemplate({ children }: MainTemplateProps) {
+export default function MainTemplate() {
   return (
     <>
         <Container>
             <Header />
         </Container>
         
-        {children}
+        <Outlet />
         
         <Footer />
     </>

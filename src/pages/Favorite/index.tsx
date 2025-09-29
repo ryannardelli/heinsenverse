@@ -5,7 +5,6 @@ import Heading from "../../components/Heading";
 import { SubHeading } from "../../components/SubHeading";
 import { useAllCastContext } from "../../hooks/useAllCastContext";
 import { useAllCharactersContext } from "../../hooks/useAllCharactersContext";
-import MainTemplate from "../../templates/MainTemplate";
 
 export default function Favorite() {
 
@@ -16,7 +15,6 @@ export default function Favorite() {
 
     return(
         <>
-        <MainTemplate>
             <Container>
 
                 {hasFavorites ? (
@@ -31,7 +29,6 @@ export default function Favorite() {
                     </>
                 )}
             </Container>
-        </MainTemplate>
     </>
     );
 }
