@@ -16,7 +16,6 @@ function App() {
     setIsModalOpen(false); // fecha o modal após envio
   };
 
-  // Exemplo: abrir o modal automaticamente após 3 segundos
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsModalOpen(true);
