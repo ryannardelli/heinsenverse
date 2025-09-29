@@ -1,7 +1,6 @@
 import { useState } from "react";
 import QuizCard from "../../components/QuizCard";
 import { quizData } from "../../components/QuizCard/quizData";
-import MainTemplate from "../../templates/MainTemplate";
 import styles from "./styles.module.css";
 import { TimerQuiz } from "../../components/TimerQuiz";
 
@@ -20,7 +19,6 @@ export default function Quiz() {
   };
 
   return (
-    <MainTemplate>
       <div className={styles.container}>
         {!started ? (
           <div className={styles.startScreen}>
@@ -53,6 +51,5 @@ export default function Quiz() {
           </>
         )}
       </div>
-    </MainTemplate>
   );
 }
